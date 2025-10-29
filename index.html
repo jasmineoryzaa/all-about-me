@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Ganti Judul ini dengan nama atau fokus websitemu -->
+    <title>Portofolio Asesmen II-2100 KIPP - Jasmine Oryza</title>
+    <!-- Load Tailwind CSS dari CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Konfigurasi Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'primary': '#4f46e5', // Indigo-600
+                        'secondary': '#1f2937', // Gray-800
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
+    <style>
+        body { overflow-x: hidden; }
+        .content-area {
+            min-height: calc(100vh - 4rem);
+        }
+        .sidebar-item {
+            cursor: pointer;
+            transition: background-color 0.15s ease-in-out;
+        }
+        /* Style untuk menampilkan kutipan lagu/lirik */
+        .song-lyrics {
+            white-space: pre-wrap;
+            font-family: monospace;
+            background-color: #f3f4f6;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            border-left: 4px solid #4f46e5;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans text-gray-700">
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar (Navigasi Samping) -->
+        <aside id="sidebar" class="w-64 bg-white shadow-xl p-4 sticky top-0 h-screen overflow-y-auto hidden md:block">
+            <h1 class="text-xl font-extrabold text-secondary mb-6 border-b pb-2">
+                Jasmine Oryza
+            </h1>
+            
+            <ul class="space-y-1">
+                <!-- Navigasi telah disesuaikan dengan permintaan user -->
+                <li id="menu-welcome" class="sidebar-item p-2 rounded-lg text-sm font-semibold text-white bg-primary" data-page="welcome-page">
+                    Welcome! 
+                </li>
+                <li id="menu-uts1" class="sidebar-item p-2 rounded-lg text-sm text-gray-700 hover:bg-gray-200" data-page="uts-1-about-me">
+                    UTS 1: All About Me
+                </li>
+                <li id="menu-uts2" class="sidebar-item p-2 rounded-lg text-sm text-gray-700 hover:bg-gray-200" data-page="uts-2-song">
+                    UTS 2: My Song
+                </li>
+                <li id="menu-uts3" class="sidebar-item p-2 rounded-lg text-sm text-gray-700 hover:bg-gray-200" data-page="uts-3-stories">
+                    UTS 3: My Stories
+                </li>
+                <li id="menu-uts4" class="sidebar-item p-2 rounded-lg text-sm text-gray-700 hover:bg-gray-200" data-page="uts-4-shape">
+                    UTS 4: My SHAPE
+                </li>
+                <li id="menu-uts5" class="sidebar-item p-2 rounded-lg text-sm text-gray-700 hover:bg-gray-200" data-page="uts-5-other">
+                    UTS 5: My Personal Reviews
+                </li>
+                <li id="menu-uas1" class="sidebar-item p-2 rounded-lg text-sm text-gray-700 hover:bg-gray-200" data-page="uts-5-other">
+                    UAS 1: My Concepts
+                </li>
+                <li id="menu-uas1" class="sidebar-item p-2 rounded-lg text-sm text-gray-700 hover:bg-gray-200" data-page="uts-5-other">
+                    UAS 2: My Opinions
+                </li>
+                <li id="menu-uas3" class="sidebar-item p-2 rounded-lg text-sm text-gray-700 hover:bg-gray-200" data-page="uts-5-other">
+                    UAS 3: My Innovations
+                </li>
+                <li id="menu-uas4" class="sidebar-item p-2 rounded-lg text-sm text-gray-700 hover:bg-gray-200" data-page="uts-5-other">
+                    UAS 4: My Knowledge
+                </li>
+                <li id="menu-uas5" class="sidebar-item p-2 rounded-lg text-sm text-gray-700 hover:bg-gray-200" data-page="uts-5-other">
+                    UAS 5: My Personal Reviews
+                </li>
+                <li id="summary" class="sidebar-item p-2 rounded-lg text-sm text-gray-700 hover:bg-gray-200" data-page="uts-5-other">
+                    Summary
+                </li>
+                <li id="references" class="sidebar-item p-2 rounded-lg text-sm text-gray-700 hover:bg-gray-200" data-page="uts-5-other">
+                    References
+                </li>
+            </ul>
+
+            <div class="mt-8 pt-4 border-t">
+                <p class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Referensi</p>
+                <ul class="mt-2 space-y-1">
+                    <li><a href="https://github.com/[UsernameKamu]" target="_blank" class="text-xs text-primary hover:underline">Profil GitHub</a></li>
+                    <li><a href="#contact-footer" class="text-xs text-primary hover:underline">Kontak Cepat</a></li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main id="main-content" class="flex-1 p-6 lg:p-10 content-area">
+            
+            <!-- Mobile Menu Toggle -->
+            <button id="mobile-menu-toggle" class="md:hidden fixed top-4 right-4 z-20 bg-primary text-white p-2 rounded-lg shadow-lg">
+                Menu
+            </button>
+
+            <!-- 1. Content: Welcome (Selamat Datang) -->
+            <section id="welcome-page" class="page-content bg-white p-6 md:p-10 rounded-xl shadow-lg border border-gray-200">
+                <h2 class="text-4xl font-extrabold text-secondary mb-6">Selamat Datang</h2>
+                
+                <div class="space-y-6 text-lg leading-relaxed">
+                    <h3 class="text-2xl font-bold text-primary mb-2">Halo! Aku Jasmine Oryza!</h3>
+                    <p class="text-xl font-semibold text-gray-700 mt-0 pt-0 leading-relaxed mb-6">
+                        Selamat datang di repositori tugas mata kuliah II2100 - Komunikasi Interpersonal.
+                    </p>
+                    <p>
+                        Di ruang kecil ini, aku menyimpan perjalanan belajarku tentang hal yang paling manusiawi
+                        dari semuanya: cara berhubungan dengan orang lain, dan cara memahami diri sendiri lewat
+                        komunikasi. Setiap tugas yang tertulis di sini adalah potongan cerita tentang bagaimana aku
+                        melihat, mendengar, dan merasakan. Kadang jujur, kadang canggung, tapi selalu berusaha
+                        tulus.
+                    </p>
+                    <blockquote class="border-l-4 border-primary pl-4 py-2 italic text-gray-800">
+                        "Aku percaya, komunikasi bukan cuma soal berbicara dengan baik, tapi juga tentang
+                        mendengarkan dengan hati terbuka." Lewat rangkaian karya ini, aku belajar bahwa setiap
+                        percakapan, sekecil apa pun, bisa jadi jembatan menuju pemahaman yang lebih dalam.
+                    </blockquote>
+                    <h5 class="text-xl font-semibold text-gray-900 mt-6">Catatan kecil:</h5>
+                    <p class="text-gray-700">
+                        Semua yang aku tulis di sini adalah refleksi pribadi. Beberapa mungkin masih mentah, tapi
+                        setiap kata lahir dari proses, dari kesalahan, percobaan, dan keberanian untuk terus belajar.
+                    </p>
+                    <p class="text-gray-700 font-semibold">
+                        Terima kasih sudah singgah. Semoga ada satu-dua hal kecil di sini yang bisa menghangatkanmu juga.
+                    </p>
+                    <p class="text-primary font-bold">Jasmine Oryza</p>
+                </div>
+            </section>
+
+            <!-- 2. Content: UTS 1: All About Me -->
+            <section id="uts-1-about-me" class="page-content bg-white p-6 md:p-10 rounded-xl shadow-lg border border-gray-200 hidden">
+                <h2 class="text-4xl font-extrabold text-secondary mb-6">UTS 1: All About Me</h2>
+                
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    
+                    <!-- Box Foto dan Info Pendek -->
+                    <div class="w-full md:w-80 flex-shrink-0">
+                        <div class="bg-gray-50 p-4 rounded-lg text-center shadow-md">
+                            <!-- PERBAIKAN: Memastikan nama file sesuai dengan yang diunggah -->
+                            <img src="foto jasminee.jpg" 
+                                 alt="Foto Diri Jasmine Oryza" 
+                                 class="w-full h-auto max-h-80 rounded-lg mb-4 object-cover mx-auto"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/400x400/CCCCCC/333333?text=FOTO+GAGAL+DIMUAT'; this.style.border='3px dashed red'; this.style.padding='10px';"
+                            >
+                            <h3 class="text-xl font-bold text-gray-900">Jasmine Oryza</h3>
+                            <p class="text-sm text-primary font-medium">Author</p>
+                            <p class="text-xs text-gray-500 mt-1">now playing: berhasil - perunggu</p>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="md:flex-1 space-y-6">
+                        <p class="text-gray-700 leading-relaxed">
+                            Halo, aku Jasmine Oryza. Aku tumbuh dan tinggal di Bandung, kota yang selalu punya dua sisi, ramai tapi tenang, sibuk tapi hangat. Di kota inilah aku belajar bahwa hidup nggak melulu tentang seberapa cepat kita sampai, tapi seberapa dalam kita memahami setiap langkahnya.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Aku suka bertemu orang baru. Ada rasa hangat ketika percakapan kecil bisa berubah jadi cerita panjang. Aku suka berbagi tawa, suka lihat orang lain merasa lebih ringan setelah ngobrol. Mungkin karena itu teman-temanku sering bilang aku ini "happy virus." Tapi di balik tawa itu, aku juga punya sisi lain, aku perfeksionis, gampang khawatir, dan sering kali nggak enakan. Kadang aku terlalu sibuk memastikan semua orang nyaman, sampai lupa nanya ke diri sendiri, "Aku sendiri gimana?"
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Namun dari situlah aku belajar: jadi baik ke orang lain itu penting, tapi jadi jujur sama diri sendiri juga perlu keberanian.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Waktu kecil, aku punya mimpi sederhana yaitu masuk ke SMP negeri impian. Tapi hidup waktu itu punya rencana lain. Aku gagal. Rasanya seperti ditutup pintu besar tepat di depan muka. Tapi ternyata, di balik pintu itu, ada ruang lain yang justru membentukku jadi lebih tangguh. Di SMP itu aku belajar mengenali diriku, belajar bangkit, dan belajar bahwa arah terbaik kadang justru bukan yang kita inginkan dari awal.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Ketika masuk SMA, dunia rasanya melebar. Aku mulai bertemu berbagai karakter, pemikiran, dan cerita. Setiap pertemuan seperti cermin kecil, ada yang memantulkan semangat, ada juga yang menunjukkan hal-hal yang harus aku perbaiki. Lalu kuliah di ITB membuka bab yang sama sekali baru. Rasanya seperti dilempar ke "kolam ikan yang jauh lebih besar", ada ikan yang lebih cepat, lebih berwarna, lebih menonjol. Tapi aku sadar, setiap ikan punya arusnya sendiri. Aku nggak harus berenang seperti mereka, aku cukup menemukan ritme renangku sendiri.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Menulis jadi pelabuhan kecilku. Lewat kata-kata, aku bisa menenangkan diri, bisa jujur tanpa takut dihakimi. Aku suka menulis narasi yang dekat dengan keseharian, tentang perasaan, perjalanan, atau momen-momen kecil yang sering terlewat. Buatku, menulis itu bukan cuma cara untuk bercerita, tapi juga cara untuk memahami. Karena kadang, baru lewat tulisan aku benar-benar sadar: "Oh, ternyata itu yang aku rasakan."
+                        </p>
+                        <blockquote class="border-l-4 border-primary pl-4 py-2 italic text-gray-800">
+                             "Aku ngga ingin selalu jadi pusat cahaya. Cukup jadi diri sendiri yang terus belajar, terus tumbuh, dan nggak berhenti mencari makna."
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 3. Content: UTS 2: My Song (In My Own Light) -->
+            <section id="uts-2-song" class="page-content bg-white p-10 rounded-xl shadow-lg hidden">
+                <h2 class="text-4xl font-extrabold text-secondary mb-6">UTS 2: My Song - "In My Own Light"</h2>
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold text-primary">Makna Lagu:</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        "In My Own Light" adalah lagu yang mencerminkan perjalananku dalam belajar menjalani
+                        hidup bukan dengan mengejar apa yang paling terang, tetapi dengan menemukan cahaya
+                        yang tenang di dalam diriku sendiri. Lagu ini mengingatkanku bahwa hidup tidak selalu
+                        berjalan lurus. Kadang ia berbelok, berhenti sejenak, bahkan mundur beberapa langkah
+                        bukan untuk menjatuhkan kita, tapi untuk mengajarkan cara melihat keindahan di dalam
+                        prosesnya. Lagu ini bercerita tentang belajar merasa cukup, bahkan ketika segalanya tidak
+                        berjalan sesuai rencana. Tentang berdiam sejenak dan menyadari bahwa pertumbuhan
+                        sering kali terjadi dalam hening.
+                    </p>
+                    <p class="text-sm text-gray-500 italic">
+                        Musik lagu ini dibuat menggunakan Mureka AI, berdasarkan lirik orisinal yang
+                        kutulis sendiri untuk merepresentasikan refleksiku tentang kehidupan dan penerimaan diri.
+                        <br>
+                        Link: <a href="https://www.mureka.ai/song-detail/3swhh6ZkaMwnKeq4Vu5TLj?is_from_share=1" target="_blank" class="text-primary hover:underline">mureka.ai/song-detail/...</a>
+                    </p>
+
+                    <h3 class="text-2xl font-semibold text-primary mt-8">Lirik Lagu:</h3>
+                    <pre class="song-lyrics">
+[Verse 1]
+I used to chase the morning sun,
+Trying to prove that I could run.
+But every mile I tried to win,
+Left me wondering where I'd been.
+
+[Pre-Chorus]
+Then I stopped and took a breath,
+Listened close to what was left.
+Turns out peace was always near,
+Whispering softly, "You're already here."
+
+[Chorus]
+I don't need to glow like fire,
+To be seen, to rise, to inspire.
+I just need to learn to shine,
+In my own light, one step at a time.
+
+[Verse 2]
+I've fallen hard, I've lost my way,
+But even storms can cleanse the day.
+The cracks I feared, they let light through,
+Now every scar feels something new.
+
+[Bridge]
+Maybe life's not meant to race,
+But to move with gentle grace.
+And if I stumble, let it be,
+Another verse inside of me.
+
+[Final Chorus]
+I don't need to glow like fire,
+To be perfect or climb higher.
+I just need to learn to find,
+My own rhythm, my peace of mind.
+
+And when the world forgets my name,
+I'll still burn soft, I'll burn the same.
+Not to impress, not to compete
+Just to be whole, just to be complete.
+                    </pre>
+                </div>
+            </section>
+
+            <!-- 4. Content: UTS 3: My Stories for You (Tentang Rupi Kaur & Menyapa Dunia) -->
+            <section id="uts-3-stories" class="page-content bg-white p-10 rounded-xl shadow-lg hidden">
+                <h2 class="text-4xl font-extrabold text-secondary mb-6">UTS 3: My Stories for You</h2>
+                <div class="space-y-8">
+                    
+                    <article>
+                        <h3 class="text-2xl font-semibold text-primary border-b pb-2 mb-4">Untuk Kamu yang Pernah Ragu (Refleksi Rupi Kaur)</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Aku ingin bercerita tentang seseorang yang tidak terkenal seperti tokoh film, tapi kisahnya
+                            selalu menempel di pikiranku, seorang penulis bernama Rupi Kaur. la menulis puisi pendek, sederhana, tanpa rima, tapi penuh luka yang jujur. Dulu ia sering diremehkan karena puisinya dianggap "terlalu ringan" dan "terlalu perempuan." Tapi ia terus menulis dengan gaya yang tidak mengikuti siapa pun, bahkan saat semua orang tertawa di belakangnya.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Aku kagum pada keberaniannya. la menulis bukan untuk membuat orang kagum, tapi untuk menyembuhkan dirinya sendiri. Dan dalam proses itu, ternyata banyak orang lain yang ikut sembuh juga.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Kadang aku merasa hidup pun seperti itu, kita tidak harus punya panggung besar untuk didengar. Cukup berani mengucapkan kata pertama, meski suara kita masih bergetar. Keberanian tidak selalu tampak seperti sorakan keras atau tepuk tangan panjang; kadang, ia justru lahir dari satu kalimat kecil yang jujur: "Aku masih di sini, mencoba lagi."
+                        </p>
+                    </article>
+
+                    <article>
+                        <h3 class="text-2xl font-semibold text-primary border-b pb-2 mb-4">Tentang Belajar Menyapa Dunia (Kisah Kuliah di ITB)</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Aku masih ingat hari pertama kuliah di ITB. Suasananya ramai sekali, tapi entah kenapa aku merasa asing di tengah keramaian itu. Sebagai orang yang suka berkomunikasi, aneh rasanya ketika mulut ingin bicara, tapi pikiran malah sibuk bertanya: "Aku cocok nggak, ya, di sini?"
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Hari-hari pertama kuliah seperti berjalan di atas tali, ingin terlihat percaya diri, tapi takut salah langkah. Aku masih mencari ritme, masih belajar kapan harus bicara dan kapan harus mendengarkan.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            Namun seiring waktu, aku sadar bahwa tidak semua koneksi lahir dari percakapan sempurna. Kadang, hubungan terbaik justru tumbuh dari momen kikuk dan tawa yang datang tanpa sengaja. Aku mulai belajar menyapa duluan, mendengarkan dengan sungguh-sungguh, dan menertawakan hal-hal kecil. Ternyata, membuka diri tidak semenakutkan itu. Semakin aku berani jadi diri sendiri, semakin aku merasa diterima bukan karena aku berusaha cocok, tapi karena aku berhenti berpura-pura.
+                        </p>
+                        <blockquote class="border-l-4 border-primary pl-4 py-2 italic text-gray-800">
+                             “Mungkin kita semua sedang belajar hal yang sama, bukan hanya cara berbicara dengan dunia, tapi juga cara berbicara dengan diri sendiri.”
+                        </blockquote>
+                    </article>
+                </div>
+            </section>
+            
+            <!-- 5. Content: UTS 4: My SHAPE (Personal Reviews diubah menjadi My SHAPE) -->
+            <section id="uts-4-shape" class="page-content bg-white p-10 rounded-xl shadow-lg hidden">
+                <h2 class="text-4xl font-extrabold text-secondary mb-6">UTS 4: My SHAPE (Spiritual Gifts, Heart, Abilities, Personality, Experiences)</h2>
+                <div class="space-y-6">
+                    
+                    <h3 class="text-2xl font-semibold text-primary">4.1 Piagam Diri</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white border border-gray-200 rounded-lg">
+                            <thead>
+                                <tr class="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
+                                    <th class="py-3 px-6 text-left">Kategori</th>
+                                    <th class="py-3 px-6 text-left">Deskripsi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700 text-sm font-light">
+                                <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="py-3 px-6 font-semibold">Signature Strengths</td>
+                                    <td class="py-3 px-6">Mampu membaca perasaan dan suasana dengan cepat. Aku mudah menyesuaikan diri dengan lingkungan baru dan tahu kapan harus bicara atau sekadar mendengarkan. Kemampuan ini membuatku sering menjadi “penyambung suasana” di antara orang-orang yang berbeda karakter.</td>
+                                </tr>
+                                <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="py-3 px-6 font-semibold">Heart (Nilai Inti & Motivasi)</td>
+                                    <td class="py-3 px-6">Aku termotivasi untuk membuat hubungan yang tulus, menyebarkan energi positif dan menciptakan ruang di mana orang merasa didengar. Aku percaya komunikasi yang hangat bisa menyembuhkan dan menumbuhkan.</td>
+                                </tr>
+                                <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="py-3 px-6 font-semibold">Aptitudes & Skills</td>
+<td class="py-3 px-6">
+    <ol class="list-decimal ml-4 space-y-1">
+        <li>Mampu menulis narasi reflektif dan komunikatif dengan rasa yang jujur.</li>
+        <li>Mudah membangun relasi dengan orang baru dan membuat suasana nyaman.</li>
+        <li>Terampil beradaptasi dalam tim lintas latar belakang dengan empati dan kepekaan tinggi.</li>
+    </ol>
+</td>                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-6 font-semibold">Personality (Kepribadian)</td>
+                                    <td class="py-3 px-6">Secara alami aku introvert, tapi bisa tampil ekstrovert saat situasi menuntut. Aku menikmati waktu sendiri untuk mengisi ulang energi, namun juga mudah berbaur bila suasananya hangat. Perfeksionis dalam hal hasil kerja, tapi lembut dalam cara berkomunikasi.</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-6 font-semibold">Experiences (Pengalaman Hidup)</td>
+                                    <td class="py-3 px-6">Pernah gagal masuk SMP negeri impian, lalu belajar bertumbuh di tempat yang tak terduga. Di SMA aku mulai lebih terbuka, dan di kuliah ITB aku bertemu “kolam yang lebih besar.” Bergabung dengan TEC ITB membuatku berinteraksi dengan banyak orang dari fakultas berbeda, para pembelajar dan perintis bisnis muda yang saling mendukung seperti keluarga. Pengalaman ini mengajarkanku bahwa pertumbuhan terbaik lahir dari lingkungan yang saling percaya dan memberi ruang untuk berkembang.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h3 class="text-2xl font-semibold text-primary mt-8">4.2 Pernyataan Misi Pribadi</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Aku ingin menjadi seseorang yang menyalakan semangat melalui kata-kata dan sikap.
+                        Bukan dengan suara yang paling keras, tapi dengan ketulusan yang konsisten.
+                        Aku ingin meninggalkan jejak berupa hubungan yang bermakna dan karya yang bisa membuat orang lain merasa lebih diterima, lebih berani, dan lebih hidup.
+                    </p>
+                    <!-- AKHIR PEMBARUAN 4.2 -->
+
+                    <!-- PEMBARUAN: 4.3 Identitas Naratif -->
+                    <h3 class="text-2xl font-semibold text-primary mt-8">4.3 Identitas Naratif</h3>
+                    <p class="text-gray-700 leading-relaxed">
+                        Saat ini, aku adalah seorang mahasiswa yang sedang belajar menghubungkan dunia ide dengan dunia rasa.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        Aku percaya setiap bentuk komunikasi baik lisan, tulisan, maupun sikap, punya kekuatan untuk menyentuh manusia di tempat yang paling sunyi.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        Dari perjalanan masa kecil hingga kini, aku belajar bahwa hidup selalu berubah, dan kita pun ikut tumbuh bersamanya. Kegagalan saat SMP membentuk ketahanan, SMA memperluas pandangan, dan kuliah membuka pintu menuju dunia yang lebih beragam. Melalui TEC ITB, aku belajar bahwa setiap orang membawa cahaya sendiri-sendiri, dan ketika cahaya-cahaya itu saling menyentuh, sesuatu yang indah terjadi.
+                    </p>
+                    <p class="text-gray-700 leading-relaxed font-medium">
+                        Aku mungkin belum tahu pasti ke mana langkah ini akan berakhir, tapi aku tahu satu hal: aku ingin terus menjadi seseorang yang menulis, berbicara, dan bertindak dengan makna karena dari sanalah aku merasa paling hidup.
+                    </p>
+                    <blockquote class="border-l-4 border-primary pl-4 py-2 italic text-gray-800 font-medium">
+                        “Grow quietly, shine gently, and let every connection you make be a small light for someone else.”
+                    </blockquote>
+                    <!-- AKHIR PEMBARUAN 4.3 -->
+                </div>
+            </section>
+            <!-- 6. Content: UTS 5: Penyesuaian (Kosong, siap diisi) -->
+            <section id="uts-5-other" class="page-content bg-white p-10 rounded-xl shadow-lg hidden">
+                <h2 class="text-4xl font-extrabold text-secondary mb-6">6. UTS 5: Penyesuaian / Materi Selanjutnya</h2>
+                <div class="space-y-6">
+                    <h3 class="text-2xl font-semibold text-primary">Judul Tugas / Review Tambahan</h3>
+                    <p class="text-gray-600">
+                        [SILAKAN ISI DI SINI. Bagian ini disiapkan untuk tugas UTS/Asesmen berikutnya.]
+                    </p>
+                    <p class="text-gray-700 leading-relaxed">
+                        Kamu bisa menambahkan teks, gambar, atau elemen lain di bagian ini, sama seperti bagian-bagian sebelumnya.
+                    </p>
+                </div>
+            </section>
+            
+            <!-- Contact Footer -->
+            <footer id="contact-footer" class="text-center mt-16 py-8 border-t border-gray-300">
+                <p class="text-sm text-gray-500">
+                    &copy; 2025 Jasmine Oryza. Dibuat dengan semangat.
+                </p>
+            </footer>
+
+        </main>
+    </div>
+
+    <script>
+        // Fungsi inti untuk menampilkan halaman dan menyorot menu
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('.page-content');
+            const menuItems = document.querySelectorAll('.sidebar-item');
+            
+            // 1. Sembunyikan semua halaman konten
+            pages.forEach(page => {
+                page.classList.add('hidden');
+            });
+            
+            // 2. Hapus style aktif dari semua item menu
+            menuItems.forEach(item => {
+                item.classList.remove('bg-primary', 'text-white');
+                item.classList.add('text-gray-700', 'hover:bg-gray-200');
+            });
+
+            // 3. Tampilkan halaman yang dipilih
+            const targetPage = document.getElementById(pageId);
+            if (targetPage) {
+                targetPage.classList.remove('hidden');
+            }
+
+            // 4. Sorot item menu yang sesuai
+            const activeMenuItem = document.querySelector(`[data-page="${pageId}"]`);
+            if (activeMenuItem) {
+                activeMenuItem.classList.add('bg-primary', 'text-white');
+                activeMenuItem.classList.remove('text-gray-700', 'hover:bg-gray-200');
+            }
+            
+            // 5. Sembunyikan sidebar di mobile setelah klik
+            if (window.innerWidth < 768) {
+                const sidebar = document.getElementById('sidebar');
+                if(sidebar) sidebar.classList.add('hidden');
+            }
+        }
+
+        // Fungsi untuk memasang semua event listener
+        function attachListeners() {
+            const menuItems = document.querySelectorAll('.sidebar-item');
+            const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+            const sidebar = document.getElementById('sidebar');
+
+            // Tambahkan event listener ke setiap item menu
+            menuItems.forEach(item => {
+                item.addEventListener('click', () => {
+                    const pageId = item.getAttribute('data-page');
+                    showPage(pageId);
+                    // Update URL hash (misalnya, #welcome-page)
+                    window.location.hash = pageId;
+                });
+            });
+
+            // Event listener untuk tombol menu mobile
+            mobileMenuToggle.addEventListener('click', () => {
+                sidebar.classList.toggle('hidden');
+            });
+        }
+        
+        // Fungsi untuk menentukan halaman mana yang harus ditampilkan saat inisialisasi
+        function initializePage() {
+            // Ambil bagian hash dari URL (menghilangkan tanda #)
+            const hash = window.location.hash.substring(1); 
+            
+            if (hash && document.getElementById(hash)) {
+                // Jika hash ada dan elemennya ditemukan, tampilkan halaman itu
+                showPage(hash); 
+            } else {
+                // Default ke "welcome-page"
+                showPage('welcome-page'); 
+                window.location.hash = 'welcome-page';
+            }
+        }
+
+        // Panggil inisialisasi dan pasang listener setelah semua elemen HTML dimuat (lebih aman dari window.onload)
+        document.addEventListener('DOMContentLoaded', () => {
+            attachListeners(); 
+            initializePage(); 
+        });
+        
+        // Handle perubahan hash (misal, tombol back/forward browser)
+        window.addEventListener('hashchange', () => {
+            initializePage();
+        });
+
+    </script>
+</body>
+</html>
